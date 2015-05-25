@@ -11,17 +11,15 @@ from Comparacion import comparar
 from Salida import Escribir
 
 
-
-
 def main():
     variables = [[],[2,-65.536,65.536,1000,"funcion1.txt",10000],
                  [4,-5.12,5.12,100,"funcion2.txt",100000],
                  [2,-100,100,1,"funcion3.txt",100000],
                  [2,-100,100,1,"funcion4.txt",10000],
-                 [4,-500,500,15,"funcion5.txt",10000],
-                 [4,0,10,10000,"funcion6.txt",10000],
+                 [4,-500,500,20,"funcion5.txt",100000],
+                 [4,0,10,0.5,"funcion6.txt",100000],
                  [2,-10,10,10,"funcion7.txt",10000],
-                 []]
+                 [5,1,60,0.66352313,"funcion8.txt",10000]]
     pob = 20
     numerito = 20
     exitos = 0

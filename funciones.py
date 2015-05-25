@@ -1,6 +1,6 @@
 __author__ = 'fredy'
 import random
-from math import cos,sin,pi,sqrt,pow
+from math import cos,sin,pi,sqrt,pow,tanh,e
 def sumatoria(v):
     sumi = 0
     a=[[-32,-16,0,16,32,-32,-16,0,16,32,-32,-16,0,16,32,-32,16,0,16,32,-32,-16,0,16,32],
@@ -34,8 +34,7 @@ def evaluar4(v):
 
 def sumatoria5(v):
      sumi = 0
-     for i in range(0,len(v)):
-         sumi += (v[i] * sin(sqrt(abs(v[i]))))
+     for i in range(0,len(v)):sumi += (v[i] * sin(sqrt(abs(v[i]))))
      return sumi
 
 def evaluar5(v):
@@ -46,6 +45,7 @@ def sumatoria6b(v,i):
        [4.0,1.0,8.0,6.0,7.0,9.0,3.0,1.0,2.0,3.0],
        [4.0,1.0,8.0,6.0,3.0,2.0,5.0,8.0,6.0,7.0],
        [4.0,1.0,8.0,6.0,7.0,9.0,3.0,1.0,2.0,3.0],]
+
     B=[1.0/10.0,2.0/10.0,2.0/10.0,4.0/10.0,4.0/10.0,6.0/10.0,3.0/10.0,7.0/10.0,5.0/10.0,5.0/10.0]
     sumi =0
     for j in range(1,5):
@@ -55,7 +55,7 @@ def evaluar6(v):
     sumi = 0
     m=10
     for i in range(1,m+1):
-        sumi += (1/(sumatoria6b(v,i)))
+        sumi += pow(sumatoria6b(v,i),-1)
     return -sumi
 
 def evaluar7(v):
@@ -66,6 +66,18 @@ def evaluar7(v):
         suma += (i*cos((i+1)*v[1]+i))
     return sumi * suma
 
+def t(i):
+    return 0.1*(i-1)
+def Y(i):
+    return 58.81*(pow(1.27,t(i)))*tanh(3.013*t(i)+sin(2.13*t(i)))*cos(pow(e,0.507)*t(i))
+def primera(v,i):
+    return pow((v[0]*v[1]),t(i)) * tanh(v[2]*t(i)+sin(v[3]*t(i))) * cos(t(i)*pow(e,v[4]))-Y(i)
+
+def evaluar8(v):
+    sumi=0
+    for i in range(1,25):
+        sumi += pow(primera(v,i),2)
+    return sumi
 def Elegir(fun,poblacion):
     aptitudes=[]
     for f in range(0,len(poblacion)):
